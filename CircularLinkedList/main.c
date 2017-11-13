@@ -31,6 +31,9 @@ int main(int argc, char *argv[])
 			case '5':
 				destroy_linklist(L);
 				break;
+			case '6':
+				joseph();
+				break;
 			case '0':
 				printf("退出程序\n");
 				exit(0);
@@ -57,6 +60,7 @@ void display_menu()
 	puts("*         3)插入新结点           *");
 	puts("*         4)删除结点             *");
 	puts("*         5)销毁链表             *");
+	puts("*         6)约瑟夫环问题         *");
 	puts("*         0)退出                 *");
 	puts("*                                *");
 	puts("**********************************");

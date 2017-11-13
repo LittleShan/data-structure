@@ -223,3 +223,103 @@ void destroy_linklist(LinkList *L)
 
 	time_out("销毁链表成功，按Enter键返回...");
 }
+
+/**
+ * 约瑟夫环问题
+ */
+void joseph()
+{
+	int n;
+	int k;
+	int m;
+
+	LinkList *L;
+
+	printf("请输入圆桌上的人数：");
+	scanf("%d", &n);
+
+	L = joseph_init(n);
+
+	printf("从第k个人开始报数(k > 1 且 k < %d)：", n);
+	scanf("%d", &k);
+
+	printf("数到m的人出列：");
+	scanf("%d", &m);
+
+	find_the_m(L, k, m);
+
+	time_out("按Enter键返回...");
+}
+
+/**
+ * 建立约瑟夫环
+ */
+LinkList *joseph_init(int n)
+{
+	int i;
+
+	LinkList *head, *rear, *p;
+
+	head = (LinkList *)malloc(sizeof(LinkList));
+	if (!head) {
+		printf("分配内存失败\n");
+		exit(1);
+	}
+
+	head->data = 1;
+	head->next = NULL;
+
+	rear = head;
+
+	for (i = 2; i <= n; i++) {
+		p = (LinkList *)malloc(sizeof(LinkList));
+		if (!p) {
+			printf("分配内存失败\n");
+			exit(1);
+		}
+
+		p->data = i;
+		p->next = NULL;
+
+		rear->next = p;
+		rear = rear->next;
+	}
+
+	rear->next = head;	/* 首尾相连 */
+
+	return head;
+}
+
+/**
+ * 出列顺序
+ */
+void find_the_m(LinkList *L, int k, int m)
+{
+	int i;
+
+	LinkList *p, *q;
+
+	p = L;
+
+	/* 找到编号为k的人 */
+	while (p->data != k) {
+		p = p->next;
+	}
+
+	q = p;
+
+	/* 从编号为k的人开始，只有符合p->next = p时，说明链表中除了p结点，所有编号都出列了 */
+	while (p->next != p) {
+		/* 从p开始报数，报到m，m出列*/
+		for (i = 1; i < m; i++) {
+			q = p;	/* p的前一个结点 */
+			p = p->next;
+		}
+		q->next = p->next;
+		printf("出列人的编号：%d\n", p->data);
+		free(p);
+		p = q->next;
+	}
+	printf("出列人的编号：%d\n", p->data);
+	free(p);
+}

@@ -34,4 +34,9 @@ void delete_linklist(LinkList *L);
 /* 销毁链表 */
 void destroy_linklist(LinkList *L);
 
+/* 约瑟夫环问题 */
+void joseph();
+LinkList *joseph_init(int n);
+void find_the_m(LinkList *L, int k, int m);
+
 #endif
