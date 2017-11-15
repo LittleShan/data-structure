@@ -205,23 +205,22 @@ void destroy_linklist(LinkList *L)
 	LinkList *h, *p, *q;
 
 	if (is_empty(L)) {
-		time_out("链表为空，按Enter键退出...");
+		time_out("链表为空，按Enter键返回...");
 		return;
 	}
 	
-	h = L;
-	p = q = h->next;
+	p = L->next;
 	
-	while(p != h) {
+	while(p != L) {
 		q = p;
 		p = p->next;
 		free(q);
 	}
+	p = NULL;
+	free(L);
 	
-	L->data = 0;
-	h->next = h;	/* 首尾相连 */
-
 	time_out("销毁链表成功，按Enter键返回...");
+	exit(0);
 }
 
 /**
