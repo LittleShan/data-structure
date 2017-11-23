@@ -9,3 +9,6 @@ Basic data structure
 * [Doubly linked list](https://github.com/tgs168/data-structure/tree/master/DoublyLinkedList)
 * [Stack](https://github.com/LittleShan/data-structure/tree/master/Stack)
 * [CircularQueue](https://github.com/LittleShan/data-structure/tree/master/CircularQueue)
+
+## Array
+* [Three tuple](https://github.com/LittleShan/data-structure/tree/master/ThreeTuple)
