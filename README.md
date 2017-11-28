@@ -12,3 +12,6 @@ Basic data structure
 
 ## Array
 * [Three tuple](https://github.com/LittleShan/data-structure/tree/master/ThreeTuple)
+
+## Tree
+* [Binary tree](https://github.com/LittleShan/data-structure/tree/master/BinaryTree)
