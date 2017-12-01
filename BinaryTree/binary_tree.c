@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "binary_tree.h"
 #include "stack.h"
+#include "queue.h"
 
 /**
  * Pause the program
@@ -167,6 +168,30 @@ void post_order_traversal(BiTree T)
 		} else {
 			printf("%c", p->data);
 			p = NULL;
+		}
+	}
+}
+
+/**
+ * level_traversal
+ */
+void level_traversal(BiTree T)
+{
+	BiTree queue[20] = {0};	/* Sequential queue */
+	BiTree p;
+
+	in_queue(queue, T);	/* The root in the queue */
+
+	while (front < rear) {
+		p = out_queue(queue);
+		printf("%c", p->data);
+
+		/* left child and right in the queue */
+		if (p->lchild != NULL) {
+			in_queue(queue, p->lchild);
+		}
+		if (p->rchild != NULL) {
+			in_queue(queue, p->rchild);
 		}
 	}
 }

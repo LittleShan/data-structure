@@ -52,6 +52,11 @@ int main(int argc, char *argv[])
 				post_order_traversal(T);
 				time_out("\nPress 'Enter' to return...");
 				break;
+			case '8':
+				printf("Result: ");
+				level_traversal(T);
+				time_out("\nPress 'Enter' to return...");
+				break;
 			case '0':
 				printf("Exit\n");
 				exit(0);
@@ -79,6 +84,7 @@ void display_menu()
 	puts("*        5)Preorder traversal(non-recursive)    *");
 	puts("*        6)Inorder traversal(non-recursive)     *");
 	puts("*        7)Postorder traversal(non-recursive)   *");
+	puts("*        8)Level traversal                      *");
 	puts("*        0)Exit                                 *");
 	puts("*                                               *");
 	puts("*************************************************");

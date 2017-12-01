@@ -36,4 +36,7 @@ extern void in_order_traversal(BiTree T);
 /* Post-order traversal(non-recursive) */
 extern void post_order_traversal(BiTree T);
 
+/* Level traversal */
+extern void level_traversal(BiTree T);
+
 #endif
